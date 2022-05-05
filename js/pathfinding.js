@@ -11,8 +11,8 @@ var escenario;  //matriz del nivel
 var anchoT;
 var altoT;
 
-const muro = '#3B2C39';
-const tierra = '#8A557C';
+const muro = '#9C571A';
+const tierra = '#FCA75D';
 
 
 //Ruta
@@ -125,14 +125,14 @@ function Casilla(x,y){
 
   //Dibujar el ClosedSet
   this.dibujaCS = function(){
-    ctx.fillStyle = '#70342D';
+    ctx.fillStyle = '#B8433B';
     ctx.fillRect(this.x*anchoT,this.y*altoT,anchoT,altoT);
   }
 
 
   //Dibujar el camino
   this.dibujaCamino = function(){
-    ctx.fillStyle = '#FFC025';
+    ctx.fillStyle = '#78E7FF';
     ctx.fillRect(this.x*anchoT,this.y*altoT,anchoT,altoT);
   }
 
@@ -251,8 +251,10 @@ function algoritmo(){
           camino.push(temporal);
         }
 
+        setTimeout(function () {
+          alert('¡Felicitaciones! Se ha encontrado el camino');
+        }, 100);
 
-        console.log('camino encontrado');
         terminado = true;
       }
 
@@ -303,7 +305,9 @@ function algoritmo(){
     }
 
     else{
-      console.log('No hay un camino posible');
+      setTimeout(function () {
+        alert('No hay un camino posible :(');
+      }, 100);
       terminado = true;   //el algoritmo ha terminado
     }
 
